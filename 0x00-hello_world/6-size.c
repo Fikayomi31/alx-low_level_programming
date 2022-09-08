@@ -1,14 +1,12 @@
-/* Writing a script that print various type of computer size */
+/* this script prints the size of various types */
 
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - Entry Point
  *
- * Return : alway 0 (success)
- *
+ * Return: Always 0 (Success)
  */
-
 int main(void)
 {
 	printf("Size of a char: %d byte(s)\n", sizeof(char));
