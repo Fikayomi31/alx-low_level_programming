@@ -1,11 +1,12 @@
+/* Script that print entry and exit */
+
 #include <stdio.h>
 
 
 /**
- * wrinting a program that
- * print Programming
- * is like building a multilingual
- *  puzzle
+ * main - Entry point
+ * 
+ * Return Alway 0 (sucess)
 */
 int main(void)
 {
