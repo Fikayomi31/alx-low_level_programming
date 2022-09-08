@@ -1,6 +1,7 @@
 /* writing a script that print and exit */
 
 #include <stdio.h>
+
 /**
  * main - Entry Point
  * Return: alway 0
