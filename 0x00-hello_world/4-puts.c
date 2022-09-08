@@ -1,7 +1,6 @@
-/* Script that print entry and exit */
+/* Script that print texts and exit */
 
 #include <stdio.h>
-
 
 /**
  * main - Entry point
