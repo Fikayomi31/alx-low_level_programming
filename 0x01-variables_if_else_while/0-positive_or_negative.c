@@ -6,7 +6,6 @@
  * main - determine if number is positive or negative
  *
  * Description: program will assign a random number to the varible n each time 
- * it is executed.
  *
  * Return: ALways 0 (Success)
  */
@@ -22,7 +21,7 @@ int main(void)
 	{	
 		printf("%d is positive\n", n);
 	}
-	else if (n ==  0)
+	else if (n == 0)
 	{
 		printf("%d is zero\n", n);
 	}
@@ -30,7 +29,6 @@ int main(void)
 	{
 		printf("%d is negative\n", n);
 	}
-	
 	return (0);
 
 }
