@@ -3,9 +3,7 @@
 #include <time.h>
 
 /**
- * main - determine if number is positive or negative
- *
- * Description: program will assign a random number to the varible n each time 
+ * main - determine if number is positive, zero or negative
  *
  * Return: ALways 0 (Success)
  */
@@ -29,6 +27,7 @@ int main(void)
 	{
 		printf("%d is negative\n", n);
 	}
+
 	return (0);
 
 }
