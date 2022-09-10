@@ -6,24 +6,32 @@
  */
 int main(void)
 {
-	int n, m;
+	int start = 48; /* 0 */
+	int end = 57; /* 9 */
+	int current;
 
-	for (n = 48; n <= 56; n++)
+	/* as long as we are not at the last digit */
+	while (start < end)
 	{
-		for (n = 49; m <= 57; m++)
+		/**
+ 		 * current should be next digit after the starting point 		 	  * this is because we do not want to combine the same number
+		 * e.g when you're starting from five, current should be 6.
+		 * i.e 56
+		 */
+		current = start + 1;
+		while (current <= end)
 		{
-			if (m > n)
+			putchar(start);
+			putchar(current);
+													 if (!(start == end - 1 && current == end))
 			{
-				putchar(n);
-				putchar(m);
-				if (n != 56 || m != 57)
-				{
-					putchar(',');
-					putchar(' ');
-				}
+				putchar(44);
+				putchar(32);
 			}
+			current++;
 		}
-	}
-	putchar('\n');
+		start++;
+											}
+	putchar(10);
 	return (0);
 }
