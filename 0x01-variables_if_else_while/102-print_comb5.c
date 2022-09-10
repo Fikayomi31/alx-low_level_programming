@@ -3,7 +3,7 @@
 /**
  * main - combination of number
  *
- * Description: print all position 
+ * Description: print all position
  * combination of two-digit number
  *
  * Return 0 (success)
@@ -13,7 +13,7 @@ int main(void)
 	int c, n, k, m;
 	for (c = 48; c <= 57; c++)
 	{
-		for (n =48; n <= 57; n++)
+		for (n = 48; n <= 57; n++)
 		{
 			for (k = 48; k <= 57; k++)
 			{
@@ -26,7 +26,7 @@ int main(void)
 						putchar(' ');
 						putchar(k);
 						putchar(m);
-					if (c + n + k + m ==227 && c ==57)
+					if (c + n + k + m == 227 && c == 57)
 					{
 					break;
 					}
