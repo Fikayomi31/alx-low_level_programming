@@ -10,7 +10,7 @@
  */
 
 
-int main()
+int main(int main(int argc, char *argv[]))
 {
 
 	int c, n, k, m;
