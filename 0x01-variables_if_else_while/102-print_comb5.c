@@ -10,6 +10,7 @@
  */
 
 int main(void)
+
 {
 	int c, n, k, m;
 
