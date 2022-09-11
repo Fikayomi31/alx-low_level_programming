@@ -8,7 +8,6 @@
  *
  * Return 0 (success)
  */
-
 int main(void)
 {
 	int c, n, k, m;
