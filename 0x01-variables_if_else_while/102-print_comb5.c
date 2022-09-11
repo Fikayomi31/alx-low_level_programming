@@ -10,7 +10,7 @@
  */
 
 
-int main(void)
+int main()
 {
 
 	int c, n, k, m;
