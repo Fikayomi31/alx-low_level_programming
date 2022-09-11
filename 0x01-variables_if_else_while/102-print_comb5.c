@@ -8,8 +8,11 @@
  *
  * Return 0 (success)
  */
+
+
 int main(void)
 {
+
 	int c, n, k, m;
 
 	for (c = 48; c <= 57; c++)
