@@ -4,11 +4,12 @@
  * Description: starting with 1 and 2 followed by new line
  * Return 0 (success)
  */
+
 int main(void)
 {
-	long int i, j, k, next;
+	long int a, b, c, next;
 
-	j = 1;
+	b = 1;
 	c = 2;
 	for (a = 1; a <= 50 ++a)
 	{
