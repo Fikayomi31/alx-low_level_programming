@@ -1,29 +1,32 @@
 #include "main.h"
-/**
- * main - print the firat 50 Fibonacci
- * Description: starting with 1 and 2 followed by new line
- * Return 0 (success)
- */
 
+/**
+ * main - prints the first 50 Fibonacci numbers, starting with 1 and 2
+ *  * followed by a new line
+ * Return: Always 0 (Success)
+ *
+ */
 int main(void)
 {
-	long int a, b, c, next;
+	long int a;
+	long int first, second;
+	int count;
 
-	b = 1;
-	c = 2;
-	for (a = 1; a <= 50 ++a)
+	a = 0;
+	first = 0;
+	second = 1;
+	count = 0;
+
+	while (count < 49)
 	{
-		if (b != 20365011074)
-		{
-			printf("%ld, ", b);
-		}
-		else
-		{
-			print("%ld\n", b);
-		}
-		next = b + c;
-		b = c;
-		c = next;
+		a = first + second;
+		printf("%li, ", a);
+		first = second;
+		second = a;
+		count++;
 	}
+	sum = first + second;
+	printf("%li\n", a);
+
 	return (0);
 }
