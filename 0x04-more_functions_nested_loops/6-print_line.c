@@ -1,20 +1,22 @@
-#include "main.h"
+#include"main.h"
 
 /**
- * print_line - prints a line of _ n long
- * @n: length of line
+ * print_line - print a straight line
  *
- * Return: void
+ * @n: is the number of times the _ character
+ *     should be printed
  */
 
 void print_line(int n)
 {
-	int line = 0;
+	int lnChr;
 
-	while (line < n)
+	if (n <= 0)
+		_putchar('\n');
+	else
 	{
-		_putchar('_');
-		line++;
+		for (lnChr = 1; lnChr <= n; ++lnChr)
+			_putchar('_');
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
