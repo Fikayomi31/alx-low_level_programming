@@ -1,4 +1,5 @@
-include <stdio.h>
+#include <stdio.h>
+#inculde <math.h>
 
 /**
  * main - prime numbers
@@ -8,19 +9,19 @@ include <stdio.h>
 
 int main(void)
 {
-	long num = 612852475143;
-	long divisor = 2;
-	long larg_prim = 0;
+	unsigned int long n = 612852475143, a = (int) sqrt(n);
 
-	while (num != 1)
+while (1)
+{
+
+	if (n % a == 0)
 	{
-		if (num % divisor == 0)
-		{
-			num = num / divisor;
-			larg_prim = divisor;
-		}
-		divisor += 1;
+		printf("%lu \n", n / a);
+		break;
 	}
-	printf("%ld\n", larg_prim);
-	return (0);
+	a--;
+
+}
+
+return (0);
 }
