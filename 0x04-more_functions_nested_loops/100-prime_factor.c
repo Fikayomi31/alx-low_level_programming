@@ -1,5 +1,6 @@
+#include <math.h>
 #include <stdio.h>
-#inculde <math.h>
+#include <assert.h>
 
 /**
  * main - prime numbers
@@ -9,19 +10,26 @@
 
 int main(void)
 {
-	unsigned int long n = 612852475143, a = (int) sqrt(n);
+	int lrgst;		   /* largest prime factor */
+	unsigned long num; /* the given number */
+	int pfactor;	   /* prime factor */
 
-while (1)
-{
+	num = 61285247143;
+	lrgst = 2;
 
-	if (n % a == 0)
+	for (pfactor = 2; num % pfactor == 0;)
+		num = num / pfactor;
+	/* after the above step, num must be odd */
+	assert(num % 2 == 1);
+
+	for (pfactor = 3; pfactor <= sqrt(num); pfactor = pfactor + 2)
 	{
-		printf("%lu \n", n / a);
-		break;
+		while (num % pfactor == 0)
+			num = num / pfactor;
+		lrgst = pfactor;
 	}
-	a--;
-
-}
-
-return (0);
+	if (num > 2)
+		lrgst = num;
+	printf("%d\n", lrgst);
+	return (0);
 }
