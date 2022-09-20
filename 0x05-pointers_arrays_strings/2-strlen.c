@@ -4,7 +4,7 @@
  * @s: a string
  * Reture: the length of the string
  */
-int_strlen(char *s)
+int _strlen(char *s)
 {
 	int length = 0;
 
