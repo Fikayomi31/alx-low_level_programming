@@ -4,17 +4,17 @@
  * @s: the string to print
  * Return: 0
  */
-void puts2(char *str)
+void puts2(char *s)
 {
-	int i = 0;
+	int i;
+	int n = 0; /* next index to print */
 
-	while (str[i] != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (i % 2 == 0)
-		{
-			_putchar(str[i]);
-		}
-		i++;
+		if (i != n)
+			continue;
+		_putchar(s[i]);
+		n = i + 2;
 	}
 	_putchar('\n');
 }
