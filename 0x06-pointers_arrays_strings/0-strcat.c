@@ -11,5 +11,6 @@
 
 char *_strcat(char *dest, char *src)
 {
+	//concatenates teo string using strcat() function
 	return (strcat(dest, src));
 }
