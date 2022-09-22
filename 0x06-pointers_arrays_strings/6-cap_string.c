@@ -10,31 +10,28 @@
  */
 char *cap_string(char *str)
 {
-	int index = 0;
+	/* create a string that contains all separators */
+	char *seps = ",;.!?\"(){} \t\n";
+	int i, s;
 
-	while (str[index])
+	/* loop iterate through each character in the string */
+	for (i = 0; str[i]; i++)
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
+		/* char to uppercase then move to next */
+		if (i == 0)
+		{
+			str[i] = toupper(str[i]);
+			continue;
+		}
 
-		if (str[index - 1] == ' ' ||
-		    str[index - 1] == '\t' ||
-		    str[index - 1] == '\n' ||
-		    str[index - 1] == ',' ||
-		    str[index - 1] == ';' ||
-		    str[index - 1] == '.' ||
-		    str[index - 1] == '!' ||
-		    str[index - 1] == '?' ||
-		    str[index - 1] == '"' ||
-		    str[index - 1] == '(' ||
-		    str[index - 1] == ')' ||
-		    str[index - 1] == '{' ||
-		    str[index - 1] == '}' ||
-		    index == 0)
-			str[index] -= 32;
-
-		index++;
+		for (s = 0; seps[s]; s++)
+		{
+			if (str[i - 1] == seps[s])
+			{
+				str[i] = toupper(str[i]);
+				break;
+			}
+		}
 	}
-
 	return (str);
 }
