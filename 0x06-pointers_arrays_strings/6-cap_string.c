@@ -10,7 +10,7 @@
 char *cap_string(char *str)
 {
 	/* create a string that contains all separators */
-	char *seps = ",;.!?\"(){}\t\n";
+	char *seps = ",;.!?\"(){} \t\n";
 	int i, s;
 
 	/* loop iterate through each character in the string */
