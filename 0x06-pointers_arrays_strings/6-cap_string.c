@@ -1,6 +1,5 @@
 #include "main.h"
-#include <string.h>
-#include "main.h"
+#include <ctype.h>
 
 /**
  * cap_string - Capitalizes all words of a string.
@@ -11,7 +10,7 @@
 char *cap_string(char *str)
 {
 	/* create a string that contains all separators */
-	char *seps = ",;.!?\"(){} \t\n";
+	char *seps = ",;.!?\"(){}\t\n";
 	int i, s;
 
 	/* loop iterate through each character in the string */

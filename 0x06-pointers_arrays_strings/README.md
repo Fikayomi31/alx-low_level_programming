@@ -10,3 +10,5 @@
 8. Write a function that encodes a string using rot13.
 9. Write a function that prints an integer.
 10. Add one line to this code, so that the program prints a[2] = 98, followed by a new line.
+11. Write a function that adds two numbers.
+12. Write a function that prints a buffer.
