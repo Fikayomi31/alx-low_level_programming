@@ -1,1 +1,1 @@
-C programming is fucking mad 
+C programming
