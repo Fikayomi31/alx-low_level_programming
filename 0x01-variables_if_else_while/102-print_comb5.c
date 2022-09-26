@@ -1,47 +1,47 @@
 #include <stdio.h>
-
 /**
- * main - combination of number
+ * main - print all possible combination
+ * of two two digit number
  *
- * Description: print all position
- * combination of two-digit number
+ * Description: two two digit number
  *
- * Return 0 (success)
+ * Return: Always 0 (success)
  */
 int main(void)
 {
+	int a, b, c, d;
 
-	int c, n, k, m;
-
-	for (c = 48; c <= 57; c++)
+	for (a = 48; a < 58; a++)
 	{
-		for (n = 48; n <= 57; n++)
+		for (b = 48; b < 58; b++)
 		{
-			for (k = 48; k <= 57; k++)
+			for (c = 48; c < 58; c++)
 			{
-				for (m = 48; m <= 57; m++)
+				for (d = 48; d < 58; d++)
 				{
-					if (((k + m) > (c + n) && k >= c) || c < k)
+					if (((c + d) > (a + b) && c >= a) || a < c)
 					{
+						putchar(a);
+						putchar(b);
+						putchar(32);
 						putchar(c);
-						putchar(n);
-						putchar(' ');
-						putchar(k);
-						putchar(m);
-					if (c + n + k + m == 227 && c == 57)
+						putchar(d);
+
+					/* condition for , and space */
+					if (a + b + c + d == 227 && a == 57) /* addtion of abcd */
 					{
-					break;
+						break;
 					}
 					else
 					{
-					putchar(',');
-					putchar(' ');
+						putchar(44); /* ASCII for , */
+						putchar(32); /* ASCII for space */
 					}
 					}
 				}
 			}
 		}
 	}
-	putchar('\n');
+	putchar ('\n');
 	return (0);
 }
