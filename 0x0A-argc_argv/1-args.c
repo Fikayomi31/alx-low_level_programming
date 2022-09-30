@@ -3,7 +3,7 @@
  * main - Entry point to print the number
  * of arguments passed into it
  * @argc: length of argument
- * @argv: array of strings of the program arugument
+ * @argv: array of arugument
  *
  * Return: (0)
  */
