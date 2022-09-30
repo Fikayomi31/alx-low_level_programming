@@ -9,12 +9,9 @@
  */
 int main(int argc, __attribute__((unused)) char *argv[])
 {
-	int i;
+	int args = argc - 1;
 
-	for (i = 0; i < argc; i++)
-	{
-		/* printing all the argument */
-		printf("%s\n", argv[i]);
-	}
+	/* printing all the argument */
+	printf("%d\n", args);
 	return (0);
 }
