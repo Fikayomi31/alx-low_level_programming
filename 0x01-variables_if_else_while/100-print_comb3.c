@@ -6,27 +6,27 @@
  */
 int main(void)
 {
-	int start = 48; /* 0 */
-	int end = 57; /* 9 */
-	int current;
+	int i = 48; /* 0 */
+	int j = 48; /* 0 */
 
-	/* as long as we are not at the last digit */
-	while (start < end)
+	while (i < 58)
 	{
-		current = start + 1;
-		while (current <= end)
+		j = i + 1;
+		while (j < 58)
 		{
-			putchar(start);
-			putchar(current);
-			if (!(start == end - 1 && current == end))
+			putchar(i);
+			putchar(j);
+
+			if (i < 56 || j < 57)
 			{
 				putchar(44);
 				putchar(32);
 			}
-			current++;
+			j++;
 		}
-		start++;
-											}
+		i++;
+	}
 	putchar(10);
+
 	return (0);
 }
