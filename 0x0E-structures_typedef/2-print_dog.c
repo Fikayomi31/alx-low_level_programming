@@ -1,26 +1,24 @@
 #include "dog.h"
+#include <stdlib.h>
 #include <stdio.h>
-#define ISNULL(x) ((x) == N ? 1 : 0)
 
 /**
- * print_dog - prints a dog struct
- * @d: a pointer to a dog struct
- *
- * Return: nothing
+ * print_dog - prints a struct dog
+ * @d: struct dog
  */
+
 void print_dog(struct dog *d)
 {
-	if (d != N)
+	if (d != NULL)
 	{
-		if (ISNULL(d->name))
-			puts("Name: (nil)");
+		if (d->name == NULL)
+			printf("Name: (nil)\n");
 		else
 			printf("Name: %s\n", d->name);
 		printf("Age: %f\n", d->age);
-		if (ISNULL(d->owner))
-			puts("Owner: (nil)");
+		if (d->owner == NULL)
+			printf("Owner: (nil)\n");
 		else
 			printf("Owner: %s\n", d->owner);
 	}
-
 }
