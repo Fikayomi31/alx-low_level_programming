@@ -1,4 +1,4 @@
-#include "lists.h"
+#include"lists.h"
 #include <string.h>
 #include <stdlib.h>
 
@@ -24,7 +24,7 @@ list_t *get_tail(list_t *node)
 /**
  * add_node_end - adds a node to the end of a linked list
  *
- * @head: a pointer to a pointer to the head of the list 🙃
+ * @head: a pointer to a pointer to the head of the list
  *
  * @str: a string
  *
