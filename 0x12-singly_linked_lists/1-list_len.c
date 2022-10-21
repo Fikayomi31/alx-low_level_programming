@@ -1,4 +1,5 @@
 #include "list.h"
+
 /**
  * list_len - find the length of linked list
  *
