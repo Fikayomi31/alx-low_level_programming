@@ -1,64 +1,94 @@
 #include "main.h"
-/**
- * error_handler - handles error for cp
- * @exit_code: exit code
- * @message: error message
- * @type: data type for format
- */
-void error_handler(int exit_code, char *message, char type, ...)
-{
-    va_list args;
+#include <stdio.h>
+#define bool char
+#define true 1
+#define false 0
 
-    va_start(args, type);
-    if (type == 's')
-        dprintf(STDERR_FILENO, message, va_arg(args, char *));
-    else if (type == 'd')
-        dprintf(STDERR_FILENO, message, va_arg(args, int));
-    else if (type == 'N')
-        dprint(STDERR_FILENO, message, "");
-    else
-        dprintf(STDERR_FILENO, "Error: Does not match any type\n");
-    va_end(args);
-    exit(exit_code);
+/**
+ * cpy - a helper function that copies content from one file
+ *	to another using a buffer of 1024 bytes
+ * @src: source file
+ * @dest: destination file
+ * Return: nothing
+ */
+void cpy(file_t *src, file_t *dest)
+{
+	int chars_r, chars_w;
+	char buffer[1024];
+
+	while (1)
+	{
+		chars_r = read(src->fd, buffer, 1024);
+		if (chars_r == -1)
+		{
+			close(src->fd);
+			close(dest->fd);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src->name);
+			exit(98);
+		}
+		chars_w = write(dest->fd, buffer, chars_r);
+		if (chars_w == -1)
+		{
+			close(src->fd);
+			close(dest->fd);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest->name);
+			exit(99);
+		}
+		if (chars_r < 1024)
+			break;
+	}
+	/* write(dest, &eof, 1); */
 }
 
+
+
 /**
- * ain - copies the content of a file to another file
- * @argc: number of arguments
- * @argv: array of arguments
- * Return:  0 (Always)
+ * main - Entry point to the program
+ * @ac: number of argument variables supplied
+ * @av: list of argument variables supplied
+ * Return: an integer
+ *
+ * Description: A program that copies the content of a file to another file.
  */
-
-int main(int argc, char *argv[])
+int main(int ac, char *av[])
 {
-    char buffer[1024];
-    int fd_s, fd_d;
-    ssize_t bytes_read, bytes_written;
+	file_t src, dest;
 
-    if (argc != 3)
-        error_handler(97, "Usage: cp file_from file_to\n", 'N');
-    
-    fd_s = open(argv[1], O_RDONLY);
-    if (fd_s == -1)
-        error_handler(100, "Error: can't read from file %s\n", 's', argv[1]);
+	if (ac != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	src.name = av[1];
+	src.fd = -1;
+	dest.name = av[2];
+	dest.fd = -1;
 
-    fd_d = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-    if (fd_d == -1)
-        error_handler(99, "Error: Can't write to %s\n", 's', argv[2]);
-
-    while ((bytes_read = read(fd_s, buffer, 1024)) > 0)
-    {
-        bytes_written = write(fd_d, buffer, bytes_read);
-        if (bytes_written == -1)
-            error_handler(99, "Error: Can't wirte to %s\n", 's', argv[2]);
-
-    }
-    if (bytes_read == -1)
-		error_handler(98, "Error: Can't read from file %s\n", 's', argv[1]);
-	if (close(fd_s) == -1)
-		error_handler(100, "Error: Can't close fd %d\n", 'd', fd_s);
-	if (close(fd_d) == -1)
-		error_handler(100, "Error: Can't close fd %d\n", 'd', fd_d);
-
-	return (0);
+	src.fd = open(src.name, O_RDONLY);
+	if (src.fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src.name);
+		exit(98);
+	}
+	dest.fd = open(dest.name, O_WRONLY | O_TRUNC | O_CREAT, 0x01B4);
+	if (dest.fd == -1)
+	{
+		close(src.fd);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest.name);
+		exit(99);
+	}
+	cpy(&src, &dest);
+	if (close(src.fd) == -1)
+	{
+		close(dest.fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", src.fd);
+		exit(100);
+	}
+	if (close(dest.fd) == -1)
+	{
+		close(src.fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", dest.fd);
+		exit(100);
+	}
+	exit(0);
 }
