@@ -1,35 +1,33 @@
-#include <math.h>
 #include <stdio.h>
-#include <assert.h>
 
 /**
- * main - prime numbers
+ * main - print the largest prime factor of the number
  *
- * Return: 0
+ * Description: prime number of this number 612852475143
+ *
+ * Return: Always 0
  */
 
 int main(void)
 {
-	int lrgst;		   /* largest prime factor */
-	unsigned long num; /* the given number */
-	int pfactor;	   /* prime factor */
+	long c;
+	long num = 612852475143;
 
-	num = 61285247143;
-	lrgst = 2;
-
-	for (pfactor = 2; num % pfactor == 0;)
-		num = num / pfactor;
-	/* after the above step, num must be odd */
-	assert(num % 2 == 1);
-
-	for (pfactor = 3; pfactor <= sqrt(num); pfactor = pfactor + 2)
+	/* Looping through num of which start on 2 */
+	for (c = 2; c < num; c++)
 	{
-		while (num % pfactor == 0)
-			num = num / pfactor;
-		lrgst = pfactor;
+		/* Checking for prime number */
+		while (num % c == 0)
+		{
+			/* checking for largest prime number ie when num is longer divible by c*/
+			num = num / c;
+		}
 	}
-	if (num > 2)
-		lrgst = num;
-	printf("%d\n", lrgst);
+	
+	printf("%lu\n", num);
+
 	return (0);
+
+
 }
+
