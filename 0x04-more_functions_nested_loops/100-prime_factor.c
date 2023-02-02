@@ -23,7 +23,6 @@ int main(void)
 			num = num / c;
 		}
 	}
-	
 	printf("%lu\n", num);
 
 	return (0);
