@@ -1,4 +1,5 @@
 # 0x05. C-Pointers, arrays and string.
 0. Write a function that takes  pointer to an int as parameter and updates the value it points to 98
-1.
+1. function that swap the value of two integer
+
 
