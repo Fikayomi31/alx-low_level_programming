@@ -8,31 +8,38 @@
  */
 int main(void)
 {
-	int a, b, k;
+	int i, j, k;
 
-	for (a = '0'; a <= '9'; a++)
+	i = 48;
+	j = 48;
+	k = 48;
+
+	while (i < 58)
 	{
-		for (b = '0'; b <= '9'; b++)
+		j = i + 1;
+		while (j < 58)
 		{
-			for (k = '0'; k <= '9'; k++)
+			k = j + 1;
+			while (k < 58)
 			{
-				if (a < b && b < k)
+				putchar(i);
+				putchar(j);
+				putchar(k);
+				if (i < 55 || j < 56 || k < 57)
 				{
-					putchar(a);
-					putchar(b);
-					putchar(k);
-
-					if (a != '7')
-					{
-						putchar(',');
-						putchar(' ');
-					}
+					putchar(44);
+					putchar(32);
 				}
+				k++;
 			}
+
+			j++;
 		}
+
+		i++;
 	}
 
-	putchar('\n');
+	putchar(10);
 
 	return (0);
 }
