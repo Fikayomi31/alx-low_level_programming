@@ -41,6 +41,8 @@ char *_strcpy(char *dest, char *src)
  * @name: name of the dog
  * @owner: owner of the dog
  * @age: age of the dog
+ *
+ * Return: new dog
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
@@ -49,41 +51,33 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog_t *d;
 
 	/* Getting the lenght of the string */
-
 	len_name = _strlen(name);
 	len_owner = _strlen(owner);
 
 	/* Allocate memory to the dog_t d */
-       d = malloc(sizeof(dog_t));
-
-       if (d == NULL)
-	       return (NULL);
-
-       /* Allocate memory to d->name */
-       d->name = malloc(sizeof(char) * (len_name + 1));
-       
-       if (d->name == NULL)
-       {
-	       free(d);
-	       return (NULL);
-       }
-
-
-       /* Allocate memory to d->owner */
-       d->owner = malloc(sizeof(char) * (len_owner + 1));
-
-       if (d->owner == NULL)
-       {
-	       free(d->name);
-	       free(d);
-	       return (NULL);
-       }
-
-       /* copy of the name of the dog to d->name and  d->owner */
-       _strcpy(d->name, name);
-       _strcpy(d->owner, owner);
-
-       d->age = age;
-
-       return (d);
+	d = malloc(sizeof(dog_t));
+	if (d == NULL)
+	{
+		return (NULL);
+	}
+	/* Allocate memory to d->name */
+	d->name = malloc(sizeof(char) * (len_name + 1));
+	if (d->name == NULL)
+	{
+		free(d);
+		return (NULL);
+	}
+	/* Allocate memory to d->owner */
+	d->owner = malloc(sizeof(char) * (len_owner + 1));
+	if (d->owner == NULL)
+	{
+		free(d->name);
+		free(d);
+		return (NULL);
+	}
+	/* copy of the name of the dog to d->name and  d->owner */
+	_strcpy(d->name, name);
+	_strcpy(d->owner, owner);
+	d->age = age;
+	return (d);
 }
