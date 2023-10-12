@@ -1,23 +1,32 @@
 #include "search_algos.h"
 #include <math.h>
 
-/**
- * jump_search - sorted array of integer using the jump search
- * @array: the element of the array
- * @size: number of element in array
- * @value: value to search for
- * 
- * Return: return value or NULL if value is not present, -
- */
+/* remember compiling math.h with gcc requires `-lm` */
 
-size_t min(int a, int b)
+size_t min(size_t a, size_t b);
+
+/**
+ * min - returns the minimum of two size_t values
+ * @a: first value
+ * @b: second value
+ *
+ * Return: `a` if lower or equal to `b`, `b` otherwise
+ */
+size_t min(size_t a, size_t b)
 {
-	if (a < b)
-		return (a);
-	else
-		return (b);
+	return (a <= b ? a : b);
 }
 
+/**
+ * jump_search - searches for a value in a sorted array of integers using
+ * a jump search algorithm
+ * @array: pointer to first element of array to search
+ * @size: number of elements in array
+ * @value: value to search for
+ *
+ * Return: first index containing `value`, or -1 if `value` not found or
+ * `array` is NULL
+ */
 
 int jump_search(int *array, size_t size, int value)
 {
